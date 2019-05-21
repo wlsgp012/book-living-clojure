@@ -1,4 +1,4 @@
-(ns book-living-clojure.ch2)
+(ns book-living-clojure.ch2.ch2)
 
 (println
   (for [animal [:mouse :duck :lory]
