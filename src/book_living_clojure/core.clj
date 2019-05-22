@@ -14,3 +14,6 @@
   (println)
   (println (str "----------------------- " title " ------------------"))
   (println))
+
+(defn -main [& args]
+  (println (first args)))
