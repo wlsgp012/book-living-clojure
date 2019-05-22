@@ -1,4 +1,4 @@
-(ns book-living-clojure.ch4.polymorphism
+(ns book-living-clojure.ch4.multimethod
   (:require [book-living-clojure.core :as jin]))
 
 (defn who-are-you [input]
@@ -36,15 +36,13 @@
 (jin/border)
 
 (println ((fn [height] (if (< height 3) :grow :shrink)) 6))
-(println ((#(if (< 1 3) :grow :shrink))))
+(println (#(if (< % 3) :grow :shrink) 9))
 
 ;(defmulti eat-mushroom (fn [height]
 ;                         (if (< height 3)
 ;                           :grow
 ;                           :shrink)))
-(defmulti eat-mushroom (#(if (< % 3)
-                           :grow
-                           :shrink)))
+(defmulti eat-mushroom #(if (< % 3) :grow :shrink))
 
 (defmethod eat-mushroom :grow [_] "Eat the right side to grow.")
 (defmethod eat-mushroom :shrink [_] "Eat the left side to grow.")
